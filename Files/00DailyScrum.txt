@@ -15,21 +15,22 @@ End scrum
 November 3
 Vlad:
 1) Done / Not done since Last Scrum:
+   Database design, start app
    
 2) To do until next Scrum:
-  
+   Finish configuration of DbContext
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   Draft for proposal, Trello
 2) To do until next Scrum:
-   
+   Html front end pages, show list
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Git setup, Proposal
 2) To do until next Scrum:
    
 3) Need Assistance / figure things out
