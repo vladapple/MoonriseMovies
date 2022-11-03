@@ -1,0 +1,82 @@
+use moonrisemovies
+;
+go
+
+CREATE TABLE users (
+  userId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+  email nvarchar(100) NOT NULL UNIQUE,
+  password nvarchar(150) NOT NULL,
+  role Enum('User', 'Admin') NOT NULL,
+)
+;
+go
+
+CREATE TABLE movies (
+  movieId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+  title nvarchar(250) NOT NULL,
+  description nvarchar(4000) NOT NULL,
+  genre nvarchar(20) NOT NULL,
+  durationMin int NOT NULL,
+  img varbinary(MAX) NOT NULL,
+  trailerURL nvarchar(150) NOT NULL,
+  ratingAvg decimal
+)
+;
+go
+
+CREATE TABLE screenings (
+  screeningId int IDENTITY(1,1) NOT NULL PRIMARY KEY, 
+  screeningCode nvarchar(2) NOT NULL,
+  movieId int NOT NULL,
+  start DATETIME NOT NULL,
+  end DATETIME NOT NULL,
+  price decimal NOT NULL,
+)
+;
+go
+
+CREATE TABLE tickets (
+  ticketId int IDENTITY(1,1) NOT NULL PRIMARY KEY, 
+  userId int NOT NULL,
+  screeningId int NOT NULL,
+  purchasedAt DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  paymentCode nvarchar(150),
+)
+;
+go 
+
+CREATE TABLE reviews (
+  reviewId int IDENTITY(1,1) NOT NULL PRIMARY KEY, 
+  userId int NOT NULL,
+  movieId int NOT NULL,
+  rating int NOT NULL,
+  comment nvarchar(4000),
+  createdAt DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+)
+;
+go
+
+alter table screenings
+	add constraint fk_screenings_movies foreign key (movieId)
+		references movies (movieId)
+;
+
+alter table tickets
+	add constraint fk_tickets_screenings foreign key (screeningId)
+		references screenings (screeningId)
+;
+
+alter table tickets
+	add constraint fk_tickets_users foreign key (userId)
+		references users (userId)
+;
+
+alter table reviews
+	add constraint fk_reviews_movies foreign key (movieId)
+		references movies (movieId)
+;
+
+alter table reviews
+	add constraint fk_reviews_users foreign key (userId)
+		references users (userId)
+;
