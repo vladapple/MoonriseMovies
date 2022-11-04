@@ -42,6 +42,19 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
+var userManager = builder.Services.BuildServiceProvider().GetService<UserManager<IdentityUser>>();
+var roleManager = builder.Services.BuildServiceProvider().GetService<RoleManager<IdentityRole>>();
+string[] roleNamesList = new string[] {"User", "Admin"};
+foreach(string roleName in roleNamesList)
+{
+    if(!roleManager.RoleExistsAsync(roleName).Result){
+        IdentityRole role = new IdentityRole();
+        role.Name = roleName;
+        IdentityResult result = roleManager.CreateAsync(role).Result;
+    }      
+}
+
 app.MapRazorPages();
 
 app.Run();
+
