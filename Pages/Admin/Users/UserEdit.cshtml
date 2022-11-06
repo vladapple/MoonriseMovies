@@ -1,0 +1,42 @@
+﻿@page "{Id}"
+@model MoonriseMovies.Pages.Admin.Users.UserEditModel
+@{
+     ViewData["Title"] = "Edit Role";
+}
+
+<h3>Update user with a new role:</h3><br>
+<a asp-page="../../Admin/Users/Users">Back to Users</a>
+<br><br>
+<h6>
+    <span style="color: grey">User Name:</span> @Model.user.UserName<br>
+</h6>
+<br>
+<div class="row">
+     <div class="col-md-4">
+          <form method="post">
+            <div class="form-group">
+                <label asp-for="userRole.UserId" class="control-label"></label>
+                <input asp-for="userRole.UserId" class="form-control" value="@Model.userRole.UserId" readonly />
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">Role</label>
+                <select class="form-control" name="roleId">
+                    <option value="@Model.userRole.RoleId">
+                        @if(@Model.userRole.RoleId == "5c11a254-af05-4c76-ac42-c754ab93b049"){<span>User</span>}
+                        else{<span>Admin</span>}
+                    </option>
+                    @foreach (var role in Model.roleList)
+                    {
+                        <option value="@role.Id">@role.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="userRole.RoleId" style="color:red; font-size:10px;"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Edit Role" class="btn btn-secondary" />
+            </div>
+          </form>
+     </div>
+</div>

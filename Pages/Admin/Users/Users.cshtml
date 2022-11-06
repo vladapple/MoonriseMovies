@@ -1,0 +1,39 @@
+﻿@page
+@model UsersModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<a asp-page="../Index">Back to dashboard</a>
+<div class="text-center">
+    <h3 class="display-4">@ViewData["Title"]</h3><br>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Links</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.userList)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <th scope="col"><a asp-page="../../Admin/Users/UserEdit" asp-route-id="@user.Id">Edit Role</a>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
