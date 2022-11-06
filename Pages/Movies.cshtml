@@ -1,6 +1,7 @@
 ﻿@page
 @model MoonriseMovies.Pages.MoviesModel
 @{
+    ViewData["Title"] = "Movies";
 }
 <br>
 <h1 class="text-center">Current Movies</h1>
@@ -20,12 +21,11 @@
                     <p class="card-text" style="overflow: hidden; height:60px;">@m.Description</p>
                     <p class="card-text">@m.Genre, @m.DurationMin minutes</p>
                     <p class="card-text">Ratings as stars go here</p>
-                    <a href="#" class="btn btn-primary">View</a>
-                    <a href="#" class="btn btn-primary">Trailer</a>
+                    <a asp-page="/ViewMovieDetails" asp-route-id="@m.Id" class="btn btn-primary">View</a>
+                    <a href=@m.TrailerURL target="_blank" class="btn btn-primary">Trailer</a>
                 </div>
             </div>
             }
         </div>
     </div>
 </div>
-((float)
