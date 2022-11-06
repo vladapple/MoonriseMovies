@@ -15,4 +15,29 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: rgb(23, 23, 27);
+  color: #fff;
+}
+
+#moviepricing{
+  background-image: url('../images/drive-movie-theater-illustration_23-2148654212.webp');
+  background-size: cover;
+  background-position-y: -180px;
+  background-repeat: no-repeat;
+  width: 100%;
+  border-radius: 25px;
+}
+
+
+#featuredmovie{
+  background-image: url('../images/Top-Gun-Maverick.webp');
+  background-size: cover;
+  background-position-y: -75px;
+  background-repeat: no-repeat;
+  width: 100%;
+  border-radius: 25px;
+}
+
+#day{
+  width: 150px;
 }
