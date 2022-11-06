@@ -1,0 +1,31 @@
+﻿@page
+@model MoonriseMovies.Pages.MoviesModel
+@{
+    ViewData["Title"] = "Movies";
+}
+<br>
+<h1 class="text-center">Current Movies</h1>
+<hr>
+@* movies that are playing *@
+
+<div class="Main">
+    <div class="container">
+        <div id="movieWrapper" class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var m in Model.MovieList)
+            {
+                <div class="card mb-3 bg-dark text-light">
+                <img src=@ViewData["Image"+m.Id.ToString()] style="width: auto; padding: 1rem;" class="img-fluid card-img-top rounded" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@m.Title</h5>
+                    
+                    <p class="card-text" style="overflow: hidden; height:60px;">@m.Description</p>
+                    <p class="card-text">@m.Genre, @m.DurationMin minutes</p>
+                    <p class="card-text">Ratings as stars go here</p>
+                    <a asp-page="/ViewMovieDetails" asp-route-id="@m.Id" class="btn btn-primary">View</a>
+                    <a href=@m.TrailerURL target="_blank" class="btn btn-primary">Trailer</a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
