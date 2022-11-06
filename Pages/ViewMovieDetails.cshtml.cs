@@ -9,16 +9,27 @@ namespace MoonriseMovies.Pages
     public class ViewMovieDetailsModel : PageModel
     {
         private MoonriseDBContext db;
-        public MoviesModel(MoonriseDBContext db)
-    {
-        this.db = db;
-    }
 
-        [BindProperty(SupportsGet = true)] 
+        public ViewMovieDetailsModel(MoonriseDBContext db)
+        {
+            this.db = db;
+        }
+
+        [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
-        public Movie movie {get; set;}
-        public async Task OnGetAsync() => movie = await db.Movies.FindAsync(Id);
+        public Movie SelMovie { get; set; }
+        public async Task OnGetAsync()
+        {
+            SelMovie = await db.Movies.FindAsync(Id);
+
+            byte[] bytes;
+
+            bytes = SelMovie.Image;
+            string imageBase64Data = Convert.ToBase64String(bytes);
+            string imageDataURL = string.Format("data:image/jpg;base64,{0}", imageBase64Data);
+            ViewData["Image" + SelMovie.Id.ToString()] = imageDataURL;
+        }
 
     }
 }
