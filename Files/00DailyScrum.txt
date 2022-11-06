@@ -38,23 +38,23 @@ Mitchell
 November 4
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   finished configuration, roles, auth.
 2) To do until next Scrum:
-  
+   crud to admin section
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   draft for index
 2) To do until next Scrum:
-   
+   Movies showing page
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Finish trello, sketches
 2) To do until next Scrum:
-   
+   Profile
 3) Need Assistance / figure things out
 --------------------------------------
 November 5

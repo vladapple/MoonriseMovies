@@ -1,0 +1,72 @@
+﻿@page "{id:int}"
+@model MoonriseMovies.Pages.Admin.Movies.MovieEditModel
+@{
+     ViewData["Title"] = "Edit Movie";
+}
+
+<h3>Edit the movie:</h3><br>
+<a asp-page="../../Admin/Movies/Movies">Back to Movies</a><br><br>
+<img src=@ViewData["Image"+Model.Movie.Id.ToString()] height="150px" width="120px"/>
+<br><br>
+<div class="row">
+     <div class="col-md-4">
+          <form method="post">
+               <div class="form-group">
+                    <label asp-for="Movie.Id" class="control-label"></label>
+                    <input asp-for="Movie.Id" class="form-control" value="@Model.Movie.Id" readonly />
+               </div>
+               <br>
+               <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" value="@Model.Movie.Title"/>
+                <span asp-validation-for="Title" style="color:red; font-size:10px;"></span>
+            </div><br>
+
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <select asp-for="Genre" class="form-control">
+                    <option value="@Model.Movie.Genre">@Model.Movie.Genre</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Western">Western</option>
+                </select>
+                <span asp-validation-for="Genre" style="color:red; font-size:10px;"></span>
+            </div><br>
+
+            <div class="form-group">
+                <label asp-for="DurationMin" class="control-label"></label>
+                <input type="number" asp-for="DurationMin" class="form-control" value="@Model.Movie.DurationMin"/>
+                <span asp-validation-for="DurationMin" style="color:red; font-size:10px;"></span>
+            </div><br>
+
+            <div class="form-group">
+                <label asp-for="TrailerURL" class="control-label"></label>
+                <input asp-for="TrailerURL" class="form-control" value="@Model.Movie.TrailerURL"/>
+                <span asp-validation-for="TrailerURL" style="color:red; font-size:10px;"></span>
+            </div><br>
+
+            <div class="form-group">
+                <label class="control-label">Image</label>
+                <input type="file" asp-for="Image" name="file" class="form-control" />
+                <span asp-validation-for="Image" style="color:red; font-size:10px;"></span>
+            </div><br>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" value="@Model.Movie.Description"/>
+                <span asp-validation-for="Description" style="color:red; font-size:10px;"></span>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <input type="submit" value="Edit Movie" class="btn btn-secondary" />
+            </div>
+          </form>
+     </div>
+</div>
