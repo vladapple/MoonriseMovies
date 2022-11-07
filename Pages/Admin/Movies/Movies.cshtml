@@ -4,10 +4,10 @@
     ViewData["Title"] = "Movies";
 }
 
-<a asp-page="../Index">Back to dashboard</a>
+<a class="adminLinks" asp-page="../Index">Back to dashboard</a>
 <div class="text-center">
     <h3 class="display-4">@ViewData["Title"]</h3><br>
-    <a asp-page="../../Admin/Movies/MovieAdd">Add Movie</a>
+    <a class="adminLinks" asp-page="../../Admin/Movies/MovieAdd">Add Movie</a>
 </div>
 <br>
 <div class="container">
@@ -33,10 +33,10 @@
                             <td>@movie.Title</td>
                             <td>@movie.Genre</td>
                             <td>@movie.DurationMin</td>
-                            <td><a href="@movie.TrailerURL" target="__blank">@movie.TrailerURL</a></td>
+                            <td><a class="adminLinks" href="@movie.TrailerURL" target="__blank">@movie.TrailerURL</a></td>
                             <td><img src=@ViewData["Image"+movie.Id.ToString()] height="50px" width="40px"/></td>
-                            <th scope="col"><a asp-page="../../Admin/Movies/MovieEdit" asp-route-id="@movie.Id">Edit |</a>
-                                            <a asp-page="../../Admin/Movies/MovieDelete" asp-route-id="@movie.Id"> Delete</a></th>
+                            <td><a class="adminLinks" asp-page="../../Admin/Movies/MovieEdit" asp-route-id="@movie.Id">Edit |</a>
+                                            <a class="adminLinks" asp-page="../../Admin/Movies/MovieDelete" asp-route-id="@movie.Id"> Delete</a></td>
                         </tr>
                     }
                 </tbody>

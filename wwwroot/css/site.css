@@ -41,3 +41,16 @@ body {
 #day{
   width: 150px;
 }
+
+.adminLinks{
+  text-decoration: none;
+  color: orange;
+}
+
+.adminLinks:hover{
+  color: rgb(239, 221, 187);
+}
+
+.table{
+  color: white;
+}
