@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <div id="featuredmovie" style="background-image: url(@ViewData["imageDataURL"])">
     <div class="px-4 py-5 my-5 text-center">
         <h1 class="display-5 fw-bold">Playing This Week</h1>
@@ -36,73 +37,92 @@
     <div class="row">
         <div class="col">
             <button type="button" id="day" class="btn btn-danger btn-lg">Friday</button>
-            <!--Start- Here we can place a small screening schedule-->
-            <div class="friday-screening">Bad Weather Warning space maybe?</div>
-            <!--End- Here we can place a small screening schedule-->
         </div>
         <div class="col">
             <button type="button" id="day" class="btn btn-danger btn-lg">Saturday</button>
-            <!--Start- Here we can place a small screening schedule-->
-            <div class="saturday-screening">Built area for screenings here (invisible until clicked on)</div>
-            <!--End- Here we can place a small screening schedule-->
         </div>
         <div class="col">
             <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
         </div>
-        <div class="row">
+        <div class="row"><br></div>
+            <div class="row">
             <!--Friday START-->
             <div class="col">
                 <!--Start- Here we can place a small screening schedule-->
                 <div class="container">
                     <div class="list-group w-auto">
                         <!--For Each Statement goes here-->
-                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                        @foreach (var s in Model.Friday)
+                        {
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                             aria-current="true">
-                            <button type="button" class="btn btn-warning text-light">Book</button>
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
                             <div class="d-flex gap-2 w-100 justify-content-between">
                                 <div class="container">
-                                    <h6 class="mb-0">8:30pm</h6>
-                                    <p class="mb-0 opacity-75">Top Gun: Maverick</p>
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
+
                                 </div>
-                                <small class="opacity-50 text-nowrap">137 mins</small>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                             </div>
                         </a>
-                        <!--For Each Statement ends here-->
-                        <!--copy paste for looks start-->
-                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                            aria-current="true">
-                            <button type="button" class="btn btn-warning text-light">Book</button>
-                            <div class="d-flex gap-2 w-100 justify-content-between">
-                                <div class="container">
-                                    <h6 class="mb-0">8:30pm</h6>
-                                    <p class="mb-0 opacity-75">Top Gun: Maverick</p>
-                                </div>
-                                <small class="opacity-50 text-nowrap">137 mins</small>
-                            </div>
-                        </a>
-                        <!---->
-                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3"
-                            aria-current="true">
-                            <button type="button" class="btn btn-warning text-light">Book</button>
-                            <div class="d-flex gap-2 w-100 justify-content-between">
-                                <div class="container">
-                                    <h6 class="mb-0">8:30pm</h6>
-                                    <p class="mb-0 opacity-75">Top Gun: Maverick</p>
-                                </div>
-                                <small class="opacity-50 text-nowrap">137 mins</small>
-                            </div>
-                        </a>
-                        <!--copy paste for looks end-->
+                        }
                     </div>
                 </div>
-                <!--End- Here we can place a small screening schedule-->
             </div>
             <!--Friday End-->
             <!--Saturday Start-->
-            <div class="col"></div>
+            <div class="col">
+                <!--Start- Here we can place a small screening schedule-->
+                <div class="container">
+                    <div class="list-group w-auto">
+                        <!--For Each Statement goes here-->
+                        @foreach (var s in Model.Saturday)
+                        {
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                            aria-current="true">
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div class="container">
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
+
+                                </div>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                            </div>
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
             <!--Saturday End-->
             <!--Sunday Start-->
-            <div class="col"></div>
+            <div class="col">
+                <!--Start- Here we can place a small screening schedule-->
+                <div class="container">
+                    <div class="list-group w-auto" style="">
+                        <!--For Each Statement goes here-->
+                        @foreach (var s in Model.Sunday)
+                        {
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                            aria-current="true">
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div class="container">
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
+
+                                </div>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                            </div>
+                        </a>
+                        }
+                    </div>
+                </div>
+            </div>
             <!--Sunday End-->
         </div>
 
