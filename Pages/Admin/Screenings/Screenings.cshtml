@@ -1,0 +1,46 @@
+﻿@page
+@model ScreeningsModel
+@{
+    ViewData["Title"] = "Screenings";
+}
+
+<a class="adminLinks" asp-page="../Index">Back to dashboard</a>
+<div class="text-center">
+    <h3 class="display-4">@ViewData["Title"]</h3><br>
+    <a class="adminLinks" asp-page="../../Admin/Screenings/ScreeningAdd">Add Screening</a>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Movie</th>
+                        <th scope="col">Start</th>
+                        <th scope="col">End</th>
+                        <th scope="col">Price $</th>
+                        <th scope="col">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var screen in Model.ScreeningList)
+                    {
+                        <tr>
+                            <td>@screen.Id</td>
+                            <td>@screen.Code</td>
+                            <td>@screen.Movie.Id - @screen.Movie.Title</td>
+                            <td>@screen.Start</td>
+                            <td>@screen.End</td>
+                            <td>@screen.Price</td>
+                            <td><a class="adminLinks" asp-page="../../Admin/Screenings/ScreeningEdit" asp-route-id="@screen.Id">Edit |</a>
+                                            <a class="adminLinks" asp-page="../../Admin/Screenings/ScreeningDelete" asp-route-id="@screen.Id"> Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

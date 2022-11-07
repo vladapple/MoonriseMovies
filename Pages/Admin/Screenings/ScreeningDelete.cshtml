@@ -1,0 +1,30 @@
+﻿@page "{id:int}"
+@model MoonriseMovies.Pages.Admin.Screenings.ScreeningDeleteModel
+@{
+    ViewData["Title"] = "Delete Screening";
+}
+
+<h3>Delete the Screening:</h3>
+<br><br>
+<h5>Id: @Model.Screening.Id</h5>
+<h5>Code: @Model.Screening.Code</h5>
+<h5>Title: @Model.Screening.Movie.Title</h5>
+<h5>Start: @Model.Screening.Start</h5>
+<h5>End: @Model.Screening.End</h5>
+<h5>Start: @Model.Screening.Price</h5>
+<br><br>
+<p style="color:red">Are you sure you want to delete this record? 
+    &nbsp;&nbsp;<button class="btn btn-secondary" onclick="enableDelete()">Yes</button>
+    &nbsp;&nbsp;<a class="btn btn-secondary" asp-page="../../Admin/Screenings/Screenings">Cancel</a>
+</p>
+<form method="post">
+    <button type="submit" id="delete" class="btn btn-danger" disabled>Delete</button>
+</form>
+ <script>
+    function enableDelete()
+    {
+        document.getElementById("delete").disabled = false;
+    }
+ </script>
+
+
