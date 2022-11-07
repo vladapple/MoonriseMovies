@@ -50,3 +50,7 @@ body {
 .adminLinks:hover{
   color: rgb(239, 221, 187);
 }
+
+.table{
+  color: white;
+}
