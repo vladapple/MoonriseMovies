@@ -1,4 +1,55 @@
-﻿@page
+﻿@page "{id:int}"
 @model MoonriseMovies.Pages.OrderPageModel
 @{
+    ViewData["Title"] = "Order Page";
 }
+<div class="main">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col-8">
+                <h1 class="center-text">@Model.movie.Title</h1>
+                <h5>Description</h5>
+                <h6 class="center-text">dfgh</h6>
+            </div>
+            <div class="col-4">
+                <br>
+                @* <img src=@ViewData["Image" + Model.movie.Id.ToString()] class="img-fluid rounded-start" alt="..."> *@
+                <p>Genre: sdfgdsfg<br>Duration: sdfgdsfg min<br>
+                    <!--Call method for ratings-->
+                    <span>
+                        @* @if (!Model.movie.RatingAvg.Equals(null))
+                        {
+                            int fullStars = Decimal.ToInt32(Model.movie.RatingAvg);
+                            int emptyStars = 5 - fullStars;
+                            if (fullStars == 0)
+                            {
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < fullStars; i++)
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                }
+                                for (int j = 0; j < emptyStars; j++)
+                                {
+                                    <i class="bi bi-star"></i>
+                                }
+                            }
+                        } *@
+                    </span>
+                    <!---->
+                </p>
+            </div>
+        </div>
+        <br>
+        
+    </div>
+</div>
+
+
