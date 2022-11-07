@@ -57,26 +57,26 @@ Mitchell
    Profile
 3) Need Assistance / figure things out
 --------------------------------------
-November 5
+November 6
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   finished Users, Movies crud
 2) To do until next Scrum:
-  
+   Screenings
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   Index, Movies 
 2) To do until next Scrum:
-   
+   Add screenings
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Profile
 2) To do until next Scrum:
-   
+   Finish profile
 3) Need Assistance / figure things out
 --------------------------------------
 November 7
