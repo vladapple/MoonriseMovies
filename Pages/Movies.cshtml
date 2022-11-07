@@ -33,27 +33,29 @@
                         {
                             int fullStars = Decimal.ToInt32(m.RatingAvg);
                             int emptyStars = 5 - fullStars;
-                            for (int i = 0;i < fullStars; i++)
-                            {
-                                <i class="bi bi-star-fill"></i>
-                                for (int j = 0; j < emptyStars; j++)
-                                {
-                                    <i class="bi bi-star"></i>
-                                }
-                            }
                             if (fullStars == 0)
+                            {   
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            }else
                             {
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                                <i class="bi bi-star"></i>
-                            }
+                                for (int i = 0;i < fullStars; i++)
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                    for (int j = 0; j < emptyStars; j++)
+                                    {
+                                        <i class="bi bi-star"></i>
+                                    }
+                                }
+                            }                        
                         }
+                        <br>
+                        <br>
                     </span>
-                    <p class="card-text">Ratings as stars go here</p>
-
-                    <a asp-page="/ViewMovieDetails" asp-route-id="@m.Id" class="btn btn-primary">View</a>
+                      <a asp-page="/ViewMovieDetails" asp-route-id="@m.Id" class="btn btn-primary">View</a>
                     <a href=@m.TrailerURL target="_blank" class="btn btn-primary">Trailer</a>
                 </div>
             </div>
