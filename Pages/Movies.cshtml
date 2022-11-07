@@ -33,10 +33,10 @@
                         {
                             int fullStars = Decimal.ToInt32(m.RatingAvg);
                             int emptyStars = 5 - fullStars;
-                            for (int i = 0;i <= fullStars; i++)
+                            for (int i = 0;i < fullStars; i++)
                             {
                                 <i class="bi bi-star-fill"></i>
-                                for (int j = 0; j <= emptyStars; j++)
+                                for (int j = 0; j < emptyStars; j++)
                                 {
                                     <i class="bi bi-star"></i>
                                 }
