@@ -4,7 +4,7 @@
     ViewData["Title"] = "Users";
 }
 
-<a asp-page="../Index">Back to dashboard</a>
+<a class="adminLinks" asp-page="../Index">Back to dashboard</a>
 <div class="text-center">
     <h3 class="display-4">@ViewData["Title"]</h3><br>
 </div>
@@ -28,7 +28,7 @@
                             <td>@user.Id</td>
                             <td>@user.UserName</td>
                             <td>@user.Email</td>
-                            <th scope="col"><a asp-page="../../Admin/Users/UserEdit" asp-route-id="@user.Id">Edit Role</a>
+                            <td><a class="adminLinks" asp-page="../../Admin/Users/UserEdit" asp-route-id="@user.Id">Edit Role</a></td>
                         </tr>
                     }
                 </tbody>
