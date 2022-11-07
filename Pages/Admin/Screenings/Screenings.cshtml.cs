@@ -24,6 +24,6 @@ public class ScreeningsModel : PageModel
 
     public async Task OnGetAsync()
     {
-        ScreeningList = await db.Screenings.Include(movie => movie.Movie).ToListAsync();  
+        ScreeningList = await db.Screenings.Include(movie => movie.Movie).OrderBy(start => start.Start).ToListAsync();  
     }
 }
