@@ -82,16 +82,16 @@ Mitchell
 November 7
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   Screenings
 2) To do until next Scrum:
-  
+   review page
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   ViewMovies finished, View by day of the week
 2) To do until next Scrum:
-   
+   Order page
 3) Need Assistance / figure things out
 
 Mitchell
