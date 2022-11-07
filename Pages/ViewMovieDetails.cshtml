@@ -36,22 +36,11 @@
                                 for (int i = 0; i < fullStars; i++)
                                 {
                                     <i class="bi bi-star-fill"></i>
-                                    for (int j = 0; j < emptyStars; j++)
-                                    {
-                                        <i class="bi bi-star"></i>
-                                    }
-                                }
-                                //Matthew, it shouldn't be nested. it should be like:
-                                /*
-                                for (int i = 0; i < fullStars; i++)
-                                {
-                                    <i class="bi bi-star-fill"></i>
                                 }
                                 for (int j = 0; j < emptyStars; j++)
                                 {
-                                        <i class="bi bi-star"></i>
+                                    <i class="bi bi-star"></i>
                                 }
-                                */
                             }
                         }
                     </span>
@@ -66,17 +55,6 @@
         <p>User must register and login to purchase tickets online.</p>
         </div>
         <div class="container text-center">
-
-                @* <div class="col">
-                    <button type="button" id="day" class="btn btn-danger btn-lg">Friday</button>
-                    </div> *@
-                @* <div class="col">
-                    <button type="button" id="day" class="btn btn-danger btn-lg">Saturday</button>
-                    </div>
-                    <div class="col">
-                    <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
-                    </div>
-                    <div class="row"><br></div> *@
                 <div class="row">
                     <!--Friday START-->
                     
@@ -92,7 +70,7 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Friday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Movie.Id"
+                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
@@ -126,7 +104,7 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Saturday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Movie.Id"
+                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
@@ -160,7 +138,7 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Movie.Id"
+                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
