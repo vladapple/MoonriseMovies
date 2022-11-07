@@ -20,8 +20,7 @@
     <div class="px-4 py-5 my-5 text-center">
         <h1 class="display-5 fw-bold">Admission</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">One ticket is valid for up to 2 movies on the same screen and night.<br>Adult tickets
-                are 20$ each.<br>Childen under the age of 10 get in for FREE.<br>Skip the line by ordering your ticket
+            <p class="lead mb-4">One ticket is valid for up to 2 movies on the same screen and night.<br>Adult tickets are 20$ each.<br>Childen under the age of 10 get in for FREE.<br>Skip the line by ordering your ticket
                 online!</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Create an Account</button>
@@ -46,7 +45,7 @@
             <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
         </div>
         <div class="row"><br></div>
-        <div class="row">
+            <div class="row">
             <!--Friday START-->
             <div class="col">
                 <!--Start- Here we can place a small screening schedule-->
@@ -55,21 +54,19 @@
                         <!--For Each Statement goes here-->
                         @foreach (var s in Model.Friday)
                         {
-                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id"
-                            class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                             aria-current="true">
-                                <button type="button" class="btn btn-warning text-light"><i
-                                    class="bi bi-film"></i>Details</button>
-                                <div class="d-flex gap-2 w-100 justify-content-between">
-                                    <div class="container">
-                                        <h6 class="mb-0">@s.Movie.Title</h6>
-                                        <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
-                                        <p class="mb-0 opacity-75">Screen @s.Code</p>
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div class="container">
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
 
-                                    </div>
-                                    <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                 </div>
-                            </a>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                            </div>
+                        </a>
                         }
                     </div>
                 </div>
@@ -83,21 +80,19 @@
                         <!--For Each Statement goes here-->
                         @foreach (var s in Model.Saturday)
                         {
-                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id"
-                            class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                             aria-current="true">
-                                <button type="button" class="btn btn-warning text-light"><i
-                                    class="bi bi-film"></i>Details</button>
-                                <div class="d-flex gap-2 w-100 justify-content-between">
-                                    <div class="container">
-                                        <h6 class="mb-0">@s.Movie.Title</h6>
-                                        <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
-                                        <p class="mb-0 opacity-75">Screen @s.Code</p>
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div class="container">
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
 
-                                    </div>
-                                    <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                 </div>
-                            </a>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                            </div>
+                        </a>
                         }
                     </div>
                 </div>
@@ -107,25 +102,23 @@
             <div class="col">
                 <!--Start- Here we can place a small screening schedule-->
                 <div class="container">
-                    <div class="list-group w-auto">
+                    <div class="list-group w-auto" style="">
                         <!--For Each Statement goes here-->
                         @foreach (var s in Model.Sunday)
                         {
-                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id"
-                            class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                            <a asp-page="/ViewMovieDetails" asp-route-id="@s.Movie.Id" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                             aria-current="true">
-                                <button type="button" class="btn btn-warning text-light"><i
-                                    class="bi bi-film"></i>Details</button>
-                                <div class="d-flex gap-2 w-100 justify-content-between">
-                                    <div class="container">
-                                        <h6 class="mb-0">@s.Movie.Title</h6>
-                                        <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
-                                        <p class="mb-0 opacity-75">Screen @s.Code</p>
+                            <button type="button" class="btn btn-warning text-light"><i class="bi bi-film"></i>Details</button>
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                                <div class="container">
+                                    <h6 class="mb-0">@s.Movie.Title</h6>
+                                    <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                    <p class="mb-0 opacity-75">Screen @s.Code</p>
 
-                                    </div>
-                                    <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                 </div>
-                            </a>
+                                <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                            </div>
+                        </a>
                         }
                     </div>
                 </div>
