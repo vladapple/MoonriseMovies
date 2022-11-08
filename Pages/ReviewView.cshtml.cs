@@ -34,21 +34,21 @@ namespace MoonriseMovies.Pages
 
         public Movie movie {get; set;}
 
-        public Screening screening {get; set;}
+        public Review review { get; set; }
 
-        [BindProperty, Required, Range(0, 5)]
-        public int Rating {get; set;}
-
-        [BindProperty, Required, MinLength(1), MaxLength(4000) ]
-        public string Comment {get; set;}
+        public List<Review> reviewList { get; set; }
 
         public byte[] Image { get; set; }
 
-        public DateTime CreatedAt {get; set;}
-
         public async Task OnGetAsync()
         {
-        
+            reviewList = await db.Reviews.Include(u => u.Client).Include(r => r.Movie).Where(r => r.Movie.Id == Id).ToListAsync();
+            movie = await db.Movies.FindAsync(Id);
+            byte[] bytes;
+            bytes = movie.Image;  
+            string imageBase64Data = Convert.ToBase64String(bytes);
+            string imageDataURL = string.Format("data:image/jpg;base64,{0}", imageBase64Data);
+            ViewData["Image"+movie.Id.ToString()] = imageDataURL;
         }   
     }
 }
