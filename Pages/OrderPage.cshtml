@@ -50,7 +50,7 @@
 <br>
     <div class="container text-center">
         <h1>Ticket Order</h1>
-        <p class="text-small">Please make sure the following information is accurate</p>
+        <p class="text-small">Please make sure the following information is accurate.<br>On submit, we will redirect you to the purchase page via Stripe</p>
     </div>
     <hr>
     <div class="container text-center">
@@ -71,7 +71,7 @@
                 <label for="">Payment: </label>
                 <input asp-for="PaymentMethod" class="bg-dark text-light" style="width: 75px;" type="text"/>
             </div>
-            <input asp-page="/Review" asp-route-id="@Model.screening.Id" type="submit" value="Place Order" class="btn btn-primary btn-lg" />
+            <input asp-page="/Review" asp-route-id="@Model.screening.Id" type="submit" value="Place Order, Pay Later" class="btn btn-primary btn-lg" />
             <a asp-page="/ViewMovieDetails" asp-route-id="@Model.movie.Id" class="btn btn-danger btn-lg">Go Back</a>
         </form>
     </div>
