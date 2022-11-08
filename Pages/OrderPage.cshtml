@@ -1,4 +1,33 @@
-﻿@page
+﻿@page "{id:int}"
 @model MoonriseMovies.Pages.OrderPageModel
 @{
+    ViewData["Title"] = "Order Page";
 }
+<div class="container">
+    <div class="container">
+        <h1>Ticket Order</h1>
+        <p class="text-sm">Please make sure the following information is accurate</p>
+    </div>
+    <hr>
+    <div class="container">
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="">Movie: <b>Movie title</b></label>
+            </div>
+            <div class="mb-3">
+                <label for="">Where: <b>Screen @Model.screening.Code</b></label>
+            </div> 
+            <div class="mb-3">
+                <label for="">Start: <b>@Model.screening.Start</b></label>
+            </div>
+            <div class="mb-3">
+                <label for="">End: <b>@Model.screening.End</b></label>
+            </div>
+            <div class="mb-3">
+                <label for="">How Many Tickets: </label>
+                <input name="ticketCount" class="form-control bg-dark text-light" min="1" required style="width: 75px;" type="number"/>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </form>
+    </div>
+</div>

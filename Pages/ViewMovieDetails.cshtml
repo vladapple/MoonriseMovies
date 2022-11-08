@@ -1,5 +1,8 @@
 ﻿@page "{id:int}"
 @model MoonriseMovies.Pages.ViewMovieDetailsModel
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> signInManager;
+@inject UserManager<IdentityUser> userManager;
 @{
     ViewData["Title"] = @Model.SelMovie.Title;
 }
@@ -70,7 +73,10 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Friday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
+                                                     <!--is user logged in or not--->
+                                                        @if(signInManager.IsSignedIn(User))
+                                                        {
+                                                            <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
@@ -83,7 +89,26 @@
                                                             </div>
                                                             <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                                         </div>
+                                                        </a>
+                                                        }else
+                                                        {
+                                                            <a asp-page="/Account/Login"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                            aria-current="true">
+                                                        <button type="button" class="btn btn-warning text-light"><i
+                                                        class="bi bi-film"></i>Login</button>
+                                                        <div class="d-flex gap-2 w-100 justify-content-between">
+                                                            <div class="container">
+                                                                <h6 class="mb-0">@s.Movie.Title</h6>
+                                                                <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                                                <p class="mb-0 opacity-75">Screen @s.Code</p>
+                                                            </div>
+                                                            <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                                                        </div>
                                                     </a>
+                                                        }
+                                                        <!--is user logged in or not--->
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -104,7 +129,9 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Saturday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
+                                                    @if(signInManager.IsSignedIn(User))
+                                                        {
+                                                            <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
@@ -117,7 +144,24 @@
                                                             </div>
                                                             <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                                         </div>
+                                                        </a>
+                                                        }else
+                                                        {
+                                                            <a asp-page="/Account/Login"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                            aria-current="true">
+                                                        <button type="button" class="btn btn-warning text-light"><i
+                                                        class="bi bi-film"></i>Login</button>
+                                                        <div class="d-flex gap-2 w-100 justify-content-between">
+                                                            <div class="container">
+                                                                <h6 class="mb-0">@s.Movie.Title</h6>
+                                                                <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                                                <p class="mb-0 opacity-75">Screen @s.Code</p>
+                                                            </div>
+                                                            <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                                                        </div>
                                                     </a>
+                                                        }
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +182,9 @@
                                                         <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
                                                     </div>
                                                     <br>
-                                                    <a asp-page="/OrderPage" asp-route-id="@s.Id"
+                                                    @if(signInManager.IsSignedIn(User))
+                                                        {
+                                                            <a asp-page="/OrderPage" asp-route-id="@s.Id"
                                                          class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
@@ -151,7 +197,23 @@
                                                             </div>
                                                             <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
                                                         </div>
+                                                        </a>
+                                                        }else
+                                                        {
+                                                            <a asp-page="/Account/Login" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                            aria-current="true">
+                                                        <button type="button" class="btn btn-warning text-light"><i
+                                                        class="bi bi-film"></i>Login</button>
+                                                        <div class="d-flex gap-2 w-100 justify-content-between">
+                                                            <div class="container">
+                                                                <h6 class="mb-0">@s.Movie.Title</h6>
+                                                                <p class="mb-0 opacity-75">@s.Start.Hour:00 PM</p>
+                                                                <p class="mb-0 opacity-75">Screen @s.Code</p>
+                                                            </div>
+                                                            <small class="opacity-50 text-nowrap">@s.Movie.DurationMin min</small>
+                                                        </div>
                                                     </a>
+                                                        }
                                                 </div>
                                             </div>
                                         </div>

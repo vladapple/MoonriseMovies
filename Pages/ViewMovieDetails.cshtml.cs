@@ -3,16 +3,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MoonriseMovies.Data;
 using MoonriseMovies.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MoonriseMovies.Pages
 {
     public class ViewMovieDetailsModel : PageModel
     {
+        private SignInManager<IdentityUser> signInManager;
         private MoonriseDBContext db;
 
-        public ViewMovieDetailsModel(MoonriseDBContext db)
+        public ViewMovieDetailsModel(MoonriseDBContext db, SignInManager<IdentityUser> signInManager)
         {
             this.db = db;
+            this.signInManager = signInManager;
         }
 
         [BindProperty(SupportsGet = true)]
