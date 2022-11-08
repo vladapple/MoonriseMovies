@@ -21,17 +21,26 @@ body {
 
 #moviepricing{
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://localhost:7032/image/herosection.jpg');
-  background-size: 130%;
+  background-size: 175%;
   background-repeat: no-repeat;
   width: 100%;
   border-radius: 25px;
 }
 
+#playingthisweek{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://localhost:7032/image/2665.jpg');
+  background-size: 180%;
+  background-repeat: no-repeat;
+  background-position-y: -175px;
+  width: 100%;
+  border-radius: 25px;
+}
 
 #featuredmovie{
   /* background-image: url('../images/Top-Gun-Maverick.webp'); */
   background-size: cover;
   background-position-y: -75px;
+  background-position-x: -75px;
   background-repeat: no-repeat;
   width: 100%;
   border-radius: 25px;
