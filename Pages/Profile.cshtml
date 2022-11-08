@@ -38,19 +38,34 @@
         </form>
     </div>
 </div>
-<br>
+<br><br>
 <div class="row">
     <div class="col-12">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col"><!-- movie title --></th> 
-                    <th scope="col"><!-- date of screening --></th> 
-                    <th scope="col"><!-- my rating? maybe remove, maybe add more --></th> 
+                    <th scope="col">Screening Id</th> 
+                    <th scope="col">Screening Code</th>
+                    <th scope="col">Title</th> 
+                    <th scope="col">Purchased At</th>
+                    <th scope="col">Price</th> 
+                    <th scope="col">Ticket Code</th>
+                    <th scope="col">Link</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- need to put in the correct model for ticket history -->
+                @foreach (var ticket in Model.ticketList)
+                    {
+                        <tr>
+                            <td>@ticket.Screening.Id</td>
+                            <td>@ticket.Screening.Code</td>
+                            <td>@ticket.Screening.Movie.Title</td>
+                            <td>@ticket.PurchasedAt</td>
+                            <td>@ticket.Screening.Price</td>
+                            <td>@ticket.PaymentCode</td>
+                            <td><a class="adminLinks" asp-page="/ViewMovieDetails" asp-route-id="@ticket.Screening.Movie.Id">To Movie</a></td>
+                        </tr>
+                    }
             </tbody>
         </table>
     </div>

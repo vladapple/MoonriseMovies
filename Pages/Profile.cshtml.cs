@@ -56,10 +56,14 @@ namespace MoonriseMovies.Pages
 
         public IdentityUser user{ get; set; }
 
+        public Ticket ticket {get; set;}
+        public List<Ticket> ticketList { get; set; }
+
         public async Task OnGetAsync()
         {
             var userName = User.Identity.Name; // user's email
             user = await _userManager.FindByNameAsync(userName);
+            ticketList = await db.Tickets.Include(t => t.Client).Include(t => t.Screening).Include(t => t.Screening.Movie).Where(r => r.Client == user).OrderByDescending(t => t.PurchasedAt).ToListAsync();
         }   
 
         public async Task<IActionResult> OnPostAsync()
