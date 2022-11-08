@@ -96,31 +96,31 @@ Matthew:
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Data preparation for screenings
 2) To do until next Scrum:
-   
+   Screening pares
 3) Need Assistance / figure things out
 --------------------------------------
 November 8
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   Reviews finished
 2) To do until next Scrum:
-  
+   Finilize review view
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   Order page, index page, buttons
 2) To do until next Scrum:
-   
+   Order page
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Trello update
 2) To do until next Scrum:
-   
+   History of transactions(tickets)
 3) Need Assistance / figure things out
 --------------------------------------
 November 9
