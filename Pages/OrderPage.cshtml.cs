@@ -24,18 +24,39 @@ namespace MoonriseMovies.Pages
         public Movie movie {get;set;}
         public Screening screening {get;set;}
         public IdentityUser user {get; set;}
+        [BindProperty, Required]
+        public string PaymentMethod {get; set;}
         public async Task OnGetAsync()
         {
-            screening = await db.Screenings.FindAsync(Id);
-            var movieid = screening.Movie;
+            screening = db.Screenings.Include(s => s.Movie).Where(s => s.Id == Id).FirstOrDefault();
+            var movieid = screening.Movie.Id;
             movie = await db.Movies.FindAsync(movieid);
 
             byte[] bytes;
 
-            // bytes = movie.Image;
-            // string imageBase64Data = Convert.ToBase64String(bytes);
-            // string imageDataURL = string.Format("data:image/jpg;base64,{0}", imageBase64Data);
-            // ViewData["Image" + movie.Id.ToString()] = imageDataURL;
+            bytes = movie.Image;
+            string imageBase64Data = Convert.ToBase64String(bytes);
+            string imageDataURL = string.Format("data:image/jpg;base64,{0}", imageBase64Data);
+            ViewData["Image" + movie.Id.ToString()] = imageDataURL;
+        }
+        public async Task OnPostAsync()
+        {
+            if(!ModelState.IsValid)
+            {
+                RedirectToPage("/Index");
+            }else
+            {
+                var newTicket = new MoonriseMovies.Models.Ticket
+                {
+                    Client = user,
+                    Screening = screening,
+                    PurchasedAt = DateTime.Now,
+                    PaymentCode = PaymentMethod,
+
+                };
+                db.Tickets.Add(newTicket);
+                await db.SaveChangesAsync();
+            }
         }
         
     }

@@ -1,18 +1,62 @@
 ﻿@page "{id:int}"
 @model MoonriseMovies.Pages.OrderPageModel
 @{
-    ViewData["Title"] = "Order Page";
+    ViewData["Title"] = @Model.movie.Title;
 }
 <div class="container">
-    <div class="container">
+    <br>
+    <div class="row">
+            <div class="col-8">
+                <h1 class="center-text">@Model.movie.Title</h1>
+                <h5>Description</h5>
+                <h6 class="center-text">@Model.movie.Description</h6>
+            </div>
+            <div class="col-4">
+                <br>
+                <img src=@ViewData["Image" + Model.movie.Id.ToString()] class="img-fluid rounded-start" alt="...">
+                <p>Genre: @Model.movie.Genre<br>Duration: @Model.movie.DurationMin min<br>
+                    <!--Call method for ratings-->
+                    <span>
+                        @if (!Model.movie.RatingAvg.Equals(null))
+                        {
+                            int fullStars = Decimal.ToInt32(Model.movie.RatingAvg);
+                            int emptyStars = 5 - fullStars;
+                            if (fullStars == 0)
+                            {
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                                <i class="bi bi-star"></i>
+                            }
+                            else
+                            {
+                                for (int i = 0; i < fullStars; i++)
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                }
+                                for (int j = 0; j < emptyStars; j++)
+                                {
+                                    <i class="bi bi-star"></i>
+                                }
+                            }
+                        }
+                    </span>
+                    <!---->
+                </p>
+            </div>
+        </div>
+
+<br>
+    <div class="container text-center">
         <h1>Ticket Order</h1>
-        <p class="text-sm">Please make sure the following information is accurate</p>
+        <p class="text-small">Please make sure the following information is accurate</p>
     </div>
     <hr>
-    <div class="container">
+    <div class="container text-center">
         <form action="" method="post">
             <div class="mb-3">
-                <label for="">Movie: <b>Movie title</b></label>
+                <label for="">Movie: <b>@Model.movie.Title</b></label>
             </div>
             <div class="mb-3">
                 <label for="">Where: <b>Screen @Model.screening.Code</b></label>
@@ -24,10 +68,11 @@
                 <label for="">End: <b>@Model.screening.End</b></label>
             </div>
             <div class="mb-3">
-                <label for="">How Many Tickets: </label>
-                <input name="ticketCount" class="form-control bg-dark text-light" min="1" required style="width: 75px;" type="number"/>
+                <label for="">Payment: </label>
+                <input asp-for="PaymentMethod" required name="Paymentcode" class="bg-dark text-light" min="1" style="width: 75px;" type="text"/>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button asp-page="/Reviews" asp-route-id="@Model.screening.Id" type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button class="btn btn-danger btn-lg">Go Back</button>
         </form>
     </div>
 </div>
