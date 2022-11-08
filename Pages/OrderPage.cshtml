@@ -69,10 +69,10 @@
             </div>
             <div class="mb-3">
                 <label for="">Payment: </label>
-                <input asp-for="PaymentMethod" required name="Paymentcode" class="bg-dark text-light" min="1" style="width: 75px;" type="text"/>
+                <input asp-for="PaymentMethod" class="bg-dark text-light" style="width: 75px;" type="text"/>
             </div>
-            <button asp-page="/Reviews" asp-route-id="@Model.screening.Id" type="submit" class="btn btn-primary btn-lg">Submit</button>
-            <button class="btn btn-danger btn-lg">Go Back</button>
+            <input asp-page="/Review" asp-route-id="@Model.screening.Id" type="submit" value="Place Order" class="btn btn-primary btn-lg" />
+            <a asp-page="/ViewMovieDetails" asp-route-id="@Model.movie.Id" class="btn btn-danger btn-lg">Go Back</a>
         </form>
     </div>
 </div>

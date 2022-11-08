@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MoonriseMovies.Pages
 {
+    [Authorize]
     public class OrderPageModel : PageModel
     {
         private MoonriseDBContext db;
@@ -24,8 +25,10 @@ namespace MoonriseMovies.Pages
         public Movie movie {get;set;}
         public Screening screening {get;set;}
         public IdentityUser user {get; set;}
-        [BindProperty, Required]
+
+        [BindProperty]
         public string PaymentMethod {get; set;}
+
         public async Task OnGetAsync()
         {
             screening = db.Screenings.Include(s => s.Movie).Where(s => s.Id == Id).FirstOrDefault();
@@ -39,25 +42,26 @@ namespace MoonriseMovies.Pages
             string imageDataURL = string.Format("data:image/jpg;base64,{0}", imageBase64Data);
             ViewData["Image" + movie.Id.ToString()] = imageDataURL;
         }
-        public async Task OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
+            screening = await db.Screenings.FindAsync(Id);
+
             if(!ModelState.IsValid)
             {
-                RedirectToPage("/Index");
-            }else
-            {
-                var newTicket = new MoonriseMovies.Models.Ticket
-                {
-                    Client = user,
-                    Screening = screening,
-                    PurchasedAt = DateTime.Now,
-                    PaymentCode = PaymentMethod,
-
-                };
-                db.Tickets.Add(newTicket);
-                await db.SaveChangesAsync();
+                return Page();
             }
-        }
-        
+            var userName = User.Identity.Name; // user's email
+            var user = db.Users.Where(u => u.UserName == userName).FirstOrDefault(); //user in database
+            var newTicket = new MoonriseMovies.Models.Ticket
+            {
+                Client = user,
+                Screening = screening,
+                PurchasedAt = DateTime.Now,
+                PaymentCode = PaymentMethod,
+            };
+            db.Tickets.Add(newTicket);
+            await db.SaveChangesAsync();
+            return RedirectToPage("/OrderSuccess");
+        } 
     }
 }

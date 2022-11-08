@@ -10,7 +10,36 @@
         <br>
         <div class="row">
             <div class="col-8">
-                <h3 class="center-text">Reviews:</h3>
+                <h5>Add rating and review:</h5>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="post">
+                            <div class="form-group">
+                                <i class="bi bi-star-fill"></i>
+                                    <input asp-for="Rating" type="range" min="1" max="5">
+                                    <span asp-validation-for="Rating" style="color:red; font-size:14px;"></span>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label asp-for="Comment" class="control-label"></label>
+                                <textarea asp-for="Comment" class="form-control"></textarea>
+                                <span asp-validation-for="Comment" style="color:red; font-size:14px;"></span>
+                            </div>
+                            <br>
+
+                            <div class="form-group">
+                                <input type="submit" value="Add Review" class="btn btn-secondary" /><br><br>
+                                <a asp-page="/Index">Back to home page</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <br><br>
                 @if(Model.reviewList.Count == 0){
                     <h4>No reviews yet! Purchase a ticket and be the first to leave a comment!</h4>
@@ -88,3 +117,7 @@
         <br>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
