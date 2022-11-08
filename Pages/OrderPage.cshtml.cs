@@ -27,8 +27,8 @@ namespace MoonriseMovies.Pages
         public async Task OnGetAsync()
         {
             screening = await db.Screenings.FindAsync(Id);
-
-            movie = await db.Movies.FindAsync(screening.Movie);
+            var movieid = screening.Movie;
+            movie = await db.Movies.FindAsync(movieid);
 
             byte[] bytes;
 
