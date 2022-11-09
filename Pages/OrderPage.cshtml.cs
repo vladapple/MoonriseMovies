@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Mail;
+using System.Net;
 
 
 namespace MoonriseMovies.Pages
@@ -61,6 +63,38 @@ namespace MoonriseMovies.Pages
             };
             db.Tickets.Add(newTicket);
             await db.SaveChangesAsync();
+
+            //email
+            var body = $@"<p>Thank you, here are details or your ticket order:<br><br>
+                            Purchase date: {DateTime.Now}<br>
+                            Screening: {screening}<br>
+                            Price: {screening.Price}.00$<br>
+                            Date and time: {screening.Start}<br>
+                            Payment Code: {PaymentMethod}<br><br>
+                            Best movies,<br>
+                            MoonriseMovie!";
+            using(SmtpClient smtp = new SmtpClient())
+            {
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential credential = new NetworkCredential
+                {
+                    UserName = "moonrisemoviesfsd04@gmail.com",  
+                    Password = "fjrknrbhcwbnyzgs"  
+                };
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = credential;
+                smtp.Port = 587;
+                
+                var message = new MailMessage();
+                message.To.Add(userName);
+                message.Subject = "Order";
+                message.Body = body;
+                message.IsBodyHtml = false;
+                message.From = new MailAddress("moonrisemovies@gmail.com");
+                await smtp.SendMailAsync(message);
+            }
+            //end email
             return RedirectToPage("/OrderSuccess");
         } 
     }

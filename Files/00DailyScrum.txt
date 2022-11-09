@@ -15,8 +15,7 @@ End scrum
 November 3
 Vlad:
 1) Done / Not done since Last Scrum:
-   Database design, start app
-   
+   Database design, start app 
 2) To do until next Scrum:
    Finish configuration of DbContext
 3) Need Assistance / figure things out
@@ -126,21 +125,21 @@ Mitchell
 November 9
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   Reviews done, Account Blob set up in Azure 
 2) To do until next Scrum:
-  
+   Email
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   Order page finished, Stripe account configured
 2) To do until next Scrum:
-   
+   Try to finilize Stripe
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
+   Profile finished
 2) To do until next Scrum:
-   
+   Trello, start PPT
 3) Need Assistance / figure things out

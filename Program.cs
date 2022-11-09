@@ -1,8 +1,25 @@
 using MoonriseMovies.Data; 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MoonriseMovies.WebApi.Common;
+using MoonriseMovies.WebApi.Repository;
+using MoonriseMovies.WebApi.Services;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+// serilog
+builder.Host.UseSerilog((_, config) =>
+    {
+        config.WriteTo.Console()
+        .ReadFrom.Configuration(builder.Configuration);
+    });
+StaticLogger.EnsureInitialized();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+// Add Azure Repository Service
+builder.Services.AddTransient<IAzureStorage, AzureStorage>();
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -30,6 +47,8 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
@@ -55,6 +74,9 @@ foreach(string roleName in roleNamesList)
 }
 
 app.MapRazorPages();
+app.MapControllers();
 
 app.Run();
+
+
 
