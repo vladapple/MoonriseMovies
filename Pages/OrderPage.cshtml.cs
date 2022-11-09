@@ -46,7 +46,9 @@ namespace MoonriseMovies.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            screening = await db.Screenings.FindAsync(Id);
+            screening = db.Screenings.Include(s => s.Movie).Where(s => s.Id == Id).FirstOrDefault();
+            var movieid = screening.Movie.Id;
+            movie = await db.Movies.FindAsync(movieid);
 
             if(!ModelState.IsValid)
             {
@@ -65,34 +67,39 @@ namespace MoonriseMovies.Pages
             await db.SaveChangesAsync();
 
             //email
-            var body = $@"<p>Thank you, here are details or your ticket order:<br><br>
-                            Purchase date: {DateTime.Now}<br>
-                            Screening: {screening}<br>
-                            Price: {screening.Price}.00$<br>
-                            Date and time: {screening.Start}<br>
-                            Payment Code: {PaymentMethod}<br><br>
-                            Best movies,<br>
-                            MoonriseMovie!";
-            using(SmtpClient smtp = new SmtpClient())
+            try
             {
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential credential = new NetworkCredential
+                MailMessage message = new MailMessage();
+                using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
                 {
-                    UserName = "moonrisemoviesfsd04@gmail.com",  
-                    Password = "fjrknrbhcwbnyzgs"  
-                };
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = credential;
-                smtp.Port = 587;
-                
-                var message = new MailMessage();
-                message.To.Add(userName);
-                message.Subject = "Order";
-                message.Body = body;
-                message.IsBodyHtml = false;
-                message.From = new MailAddress("moonrisemovies@gmail.com");
-                await smtp.SendMailAsync(message);
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential()
+                    {
+                        UserName = "moonrisemoviesfsd04@gmail.com",
+                        Password = "fjrknrbhcwbnyzgs",
+                    };
+                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtpClient.EnableSsl = true;
+                    message.IsBodyHtml = true;
+                    message.Body = @$"
+                                    <h4 style='color:orrange'>Thank you for your purchase!</h4><br> 
+                                    <h5>Here are details or your ticket order:</h5>
+                                    <p>Purchase date: {DateTime.Now}<br>
+                                    Movie Title: {movie.Title}<br>
+                                    Screening: {screening.Code}<br>
+                                    Screening Date: {screening.Start}<br>
+                                    Price: {screening.Price}.00$<br>
+                                    Payment Code: {PaymentMethod}<br><br>
+                                    Enjoy the movie!<br><br>
+                                    Kind regards,<br>
+                                    MoonriseMovie</p>";
+
+                    smtpClient.Send("moonrisemoviesfsd04@gmail.com", userName, "Order Confirmation", message.Body);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine("{0}: {1}", e.ToString(), e.Message);
             }
             //end email
             return RedirectToPage("/OrderSuccess");
