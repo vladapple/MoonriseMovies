@@ -46,10 +46,11 @@
                                 }
                             }
                         }
+                        <br><br>
+                        <a href=@Model.SelMovie.TrailerURL target="_blank" class="btn btn-danger">Trailer <i class="bi bi-youtube"></i></a>
+                        <a asp-page="/ReviewView" asp-route-id="@Model.SelMovie.Id" class="btn btn-primary">Reviews</a>
                     </span>
                     <!---->
-                    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-                    <a asp-page="/ReviewView" asp-route-id="@Model.SelMovie.Id" class="btn btn-primary">Reviews</a>
                 </p>
             </div>
         </div>
