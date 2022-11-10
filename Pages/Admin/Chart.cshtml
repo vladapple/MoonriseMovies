@@ -5,9 +5,42 @@
 }
 <html>
 <head>
-    <!--Load the AJAX API-->
+   <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+  <body style="background-color: white">
+    <a asp-page="../Admin/Index">Back to dashboard</a>
+    <div id="chart_div"></div> 
+    @{
+      int i=0;
+      @foreach(var r in Model.movieList)
+      {
+        i++;
+        <input type="text" id="@("T"+i)" value="@r.Title" hidden/>
+        <input type="number" id="@("R"+i)" value="@r.RatingAvg" hidden/>
+      }
+    }
+
     <script type="text/javascript">
+      var name1 = document.getElementById("T1").value;
+      var name2 = document.getElementById("T2").value;
+      var name3 = document.getElementById("T3").value;
+      var name4 = document.getElementById("T4").value;
+      var name5 = document.getElementById("T5").value;
+      var name6 = document.getElementById("T6").value;
+      var name7 = document.getElementById("T7").value;
+      var name8 = document.getElementById("T8").value;
+
+      var rate1 = parseFloat(document.getElementById("R1").value);
+      var rate2 = parseFloat(document.getElementById("R2").value);
+      var rate3 = parseFloat(document.getElementById("R3").value);
+      var rate4 = parseFloat(document.getElementById("R4").value);
+      var rate5 = parseFloat(document.getElementById("R5").value);
+      var rate6 = parseFloat(document.getElementById("R6").value);
+      var rate7 = parseFloat(document.getElementById("R7").value);
+      var rate8 = parseFloat(document.getElementById("R8").value);
 
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
@@ -18,33 +51,29 @@
       function drawChart() {
 
         // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'dates');
-        data.addColumn('number', 'tickets');
+        var data = new google.visualization.DataTable();  
+        data.addColumn('string', 'movies');
+        data.addColumn('number', 'ratings');
         data.addRows([
-          ["Monday", 3],
-          ["Tuesday", 1],
-          ["Wednesday", 6],
-          ["Thursday", 1],
-          ["Friday", 2],
-          ["Saturday", 7],
-          ["Sunday", 9]
+          [name1, rate1],
+          [name2, rate2],
+          [name3, rate3],
+          [name4, rate4],
+          [name5, rate5],
+          [name6, rate6],
+          [name7, rate7],
+          [name8, rate8]
         ]);
 
         // Set chart options
-        var options = {'title':'How many tickets purchased each day',
-                       'width':1000,
-                       'height':600};
+        var options = {'title':'Rating of movies this week',
+                       'width': '100%',
+                       'height': 700};
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
-    </script>
-  </head>
-
-  <body style="background-color: white">
-    <a asp-page="../Admin/Index">Back to dashboard</a>
-    <div id="chart_div"></div>
+      </script>
   </body>
   </html>
