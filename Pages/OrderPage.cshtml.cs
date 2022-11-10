@@ -17,9 +17,13 @@ namespace MoonriseMovies.Pages
     public class OrderPageModel : PageModel
     {
         private MoonriseDBContext db;
-        public OrderPageModel(MoonriseDBContext db)
+        private readonly string _gmailUser;
+        private readonly string _gmailPassword;
+         public OrderPageModel(MoonriseDBContext db, IConfiguration configuration)
         {
             this.db = db;
+            _gmailUser = configuration.GetValue<string>("GmailUser");
+            _gmailPassword = configuration.GetValue<string>("GmailPassword");
         }
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
@@ -69,39 +73,49 @@ namespace MoonriseMovies.Pages
             //email
             try
             {
-                MailMessage message = new MailMessage();
-                using (var smtpClient = new SmtpClient("smtp.gmail.com", 587))
+                var mail = new MailMessage
                 {
-                    smtpClient.UseDefaultCredentials = false;
-                    smtpClient.Credentials = new NetworkCredential()
-                    {
-                        UserName = "moonrisemoviesfsd04@gmail.com",
-                        Password = "fjrknrbhcwbnyzgs",
-                    };
-                    smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    smtpClient.EnableSsl = true;
-                    message.IsBodyHtml = true;
-                    message.Body = @$"
-                                    <h4 style='color:orrange'>Thank you for your purchase!</h4><br> 
-                                    <h5>Here are details or your ticket order:</h5>
-                                    <p>Purchase date: {DateTime.Now}<br>
-                                    Movie Title: {movie.Title}<br>
-                                    Screening: {screening.Code}<br>
-                                    Screening Date: {screening.Start}<br>
-                                    Price: {screening.Price}.00$<br>
-                                    Payment Code: {PaymentMethod}<br><br>
-                                    Enjoy the movie!<br><br>
-                                    Kind regards,<br>
-                                    MoonriseMovie</p>";
-
-                    smtpClient.Send("moonrisemoviesfsd04@gmail.com", userName, "Order Confirmation", message.Body);
-                }
+                    From = new MailAddress(_gmailUser),
+                    Subject = "Order Confirmation",
+                    Body = $@"
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                            <meta charset=""utf-8"" />
+                            <title></title>
+                            <body>
+                            <h4 style='color:orrange'>Thank you for your purchase!</h4><br> 
+                            <h5>Here are details or your ticket order:</h5>
+                            <p>Purchase date: {DateTime.Now}<br>
+                            Movie Title: {movie.Title}<br>
+                            Screening: {screening.Code}<br>
+                            Screening Date: {screening.Start}<br>
+                            Price: {screening.Price}.00$<br>
+                            Payment Code: {PaymentMethod}<br><br>
+                            Enjoy the movie!<br><br>
+                            Kind regards,<br>
+                            MoonriseMovie</p>
+                            </body></html>",
+                    IsBodyHtml = true
+                };
+                mail.To.Add(userName);
+                var client = new SmtpClient("smtp.gmail.com")
+                {
+                    UseDefaultCredentials = false,
+                    Port = 587,
+                    Credentials = new System.Net.NetworkCredential(
+                        _gmailUser, _gmailPassword),
+                        EnableSsl = true
+                };
+            
+                client.Send(mail);
             }
             catch (Exception e)
             {
                 Console.Error.WriteLine("{0}: {1}", e.ToString(), e.Message);
             }
             //end email
+
             return RedirectToPage("/OrderSuccess");
         } 
     }
