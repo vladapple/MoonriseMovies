@@ -143,3 +143,70 @@ Mitchell
 2) To do until next Scrum:
    Trello, start PPT
 3) Need Assistance / figure things out
+
+
+November 10
+Vlad:
+1) Done / Not done since Last Scrum:
+   Email, chart finished
+2) To do until next Scrum:
+   Blob in Azure
+3) Need Assistance / figure things out
+
+Matthew:
+1) Done / Not done since Last Scrum:
+   Still working on Stripe
+2) To do until next Scrum:
+   API implementation
+3) Need Assistance / figure things out
+
+Mitchell
+1) Done / Not done since Last Scrum:
+   PPT, Privacy
+2) To do until next Scrum:
+   PPT, color schemes
+3) Need Assistance / figure things out
+
+November 11
+Vlad:
+1) Done / Not done since Last Scrum:
+   
+2) To do until next Scrum:
+   
+3) Need Assistance / figure things out
+
+Matthew:
+1) Done / Not done since Last Scrum:
+   
+2) To do until next Scrum:
+   
+3) Need Assistance / figure things out
+
+Mitchell
+1) Done / Not done since Last Scrum:
+  
+2) To do until next Scrum:
+   
+3) Need Assistance / figure things out
+
+November 12
+Vlad:
+1) Done / Not done since Last Scrum:
+   
+2) To do until next Scrum:
+ 
+3) Need Assistance / figure things out
+
+Matthew:
+1) Done / Not done since Last Scrum:
+  
+2) To do until next Scrum:
+   
+3) Need Assistance / figure things out
+
+Mitchell
+1) Done / Not done since Last Scrum:
+   
+2) To do until next Scrum:
+  
+3) Need Assistance / figure things out
