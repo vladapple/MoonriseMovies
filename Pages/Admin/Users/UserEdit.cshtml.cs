@@ -46,6 +46,7 @@ namespace MoonriseMovies.Pages.Admin.Users
         {
             user = await db.Users.FindAsync(Id);
             userRole = await db.UserRoles.Where(user => user.UserId == Id).FirstOrDefaultAsync();
+            role = await db.Roles.Where(role => role.Id == userRole.RoleId).FirstOrDefaultAsync();
             roleList = await db.Roles.ToListAsync();
         }   
 
@@ -67,7 +68,6 @@ namespace MoonriseMovies.Pages.Admin.Users
             {
                 await _userManager.RemoveFromRoleAsync(user, oldRoleName);
                 await _userManager.AddToRoleAsync(user, newRoleName);
-                //await _userManager.ChangePasswordAsync(user, "oldpassword", "newpassword");
                 await db.SaveChangesAsync();
             }
             return RedirectToPage("../../Admin/Users/Users"); 

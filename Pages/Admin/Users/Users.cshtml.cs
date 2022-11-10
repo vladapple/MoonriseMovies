@@ -30,8 +30,12 @@ public class UsersModel : PageModel
 
     public List<IdentityUserRole<string>> userRoleList { get; set; } = new List<IdentityUserRole<string>>();
 
+    public List<string> combinedList { get; set; } = new List<string>();
+
     public async Task OnGetAsync()
     {
-        userList = await db.Users.ToListAsync();  
+        userList = await db.Users.ToListAsync();
+        userRoleList = await db.UserRoles.ToListAsync(); 
+        roleList = await db.Roles.ToListAsync();                    
     }
 }

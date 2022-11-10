@@ -23,8 +23,7 @@
                 <label class="control-label">Role</label>
                 <select class="form-control" name="roleId">
                     <option value="@Model.userRole.RoleId">
-                        @if(@Model.userRole.RoleId == "5c11a254-af05-4c76-ac42-c754ab93b049"){<span>User</span>}
-                        else{<span>Admin</span>}
+                        @Model.role.Name
                     </option>
                     @foreach (var role in Model.roleList)
                     {
