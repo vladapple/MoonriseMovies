@@ -31,7 +31,7 @@ namespace MoonriseMovies.Models
         public string TrailerURL {get; set;}
         
         [RegularExpression(@"^\d+(\.\d{1,2})?$")]
-        [Range(0, 9999999999999999.99)]
+        [Range(0, 5)]
         public decimal RatingAvg {get; set;}
     }
 }
