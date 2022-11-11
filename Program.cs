@@ -6,6 +6,7 @@ using MoonriseMovies.WebApi.Repository;
 using MoonriseMovies.WebApi.Services;
 using Serilog;
 
+
 var builder = WebApplication.CreateBuilder(args);
 // serilog
 builder.Host.UseSerilog((_, config) =>
@@ -33,6 +34,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.SignIn.RequireConfirmedAccount = false;
 });
 
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Account/Login";
@@ -45,7 +47,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
     app.UseSwagger();
     app.UseSwaggerUI();
