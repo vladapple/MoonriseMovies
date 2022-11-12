@@ -14,7 +14,11 @@ namespace MoonriseMovies.Data
 {
     public class MoonriseDBContext: IdentityDbContext
     {
-        public MoonriseDBContext(DbContextOptions<MoonriseDBContext> options): base(options){}
+        private readonly string _databaseConnection;
+        public MoonriseDBContext(DbContextOptions<MoonriseDBContext> options, IConfiguration configuration): base(options)
+        {
+            _databaseConnection = configuration.GetValue<string>("DatabaseConnection");
+        }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Screening> Screenings { get; set; }
@@ -24,7 +28,8 @@ namespace MoonriseMovies.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=tcp:moonrisemovies.database.windows.net,1433;Initial Catalog=MoonriseMoviesDB;Persist Security Info=False;User ID=MoonriseMoviesDB;Password=Fs$9J0sV%87b;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                //optionsBuilder.UseSqlServer(@"Server=tcp:moonrisemovies.database.windows.net,1433;Initial Catalog=MoonriseMoviesDB;Persist Security Info=False;User ID=MoonriseMoviesDB;Password=Fs$9J0sV%87b;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer(_databaseConnection);
             }
         }
     }
