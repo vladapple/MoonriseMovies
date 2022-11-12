@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Configuration;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 
 
 namespace MoonriseMovies.Pages.Admin
@@ -17,6 +19,8 @@ namespace MoonriseMovies.Pages.Admin
     {
         private readonly string _connectionString;
         private readonly string _containerName;
+
+        public List<BlobItem> blobs { get; set; } = new List<BlobItem>();
          public DeleteInBlobModel(IConfiguration configuration)
         {
             _connectionString = configuration.GetValue<string>("BlobConnectionString");
@@ -24,7 +28,11 @@ namespace MoonriseMovies.Pages.Admin
         }
         public void OnGet()
         {
+            BlobContainerClient blobContainerClient = new BlobContainerClient(_connectionString, _containerName);
+            blobContainerClient.CreateIfNotExists();
+            blobs = blobContainerClient.GetBlobs().ToList();
         }
+
 
         public async Task < IActionResult > OnPostAsync(string fileName) 
         {  
@@ -35,7 +43,7 @@ namespace MoonriseMovies.Pages.Admin
             CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(strContainerName);  
             var blob = cloudBlobContainer.GetBlobReference(fileName);  
             await blob.DeleteIfExistsAsync();  
-            return RedirectToPage("../Admin/Index");  
+            return RedirectToPage("../../Admin/Blobs/Index");  
         }   
     }
 }

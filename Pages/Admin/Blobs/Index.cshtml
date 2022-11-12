@@ -1,0 +1,40 @@
+﻿@page
+@model MoonriseMovies.Pages.Admin.Blobs.IndexModel
+@{
+    ViewData["Title"] = "Blob Storage";
+}
+
+<a class="adminLinks" asp-page="../../Admin/Index">Back to Dashboard</a><br>
+<br>
+<h4>Blob Storage in Azure:</h4><br>
+<br>
+
+<a class="adminLinks" asp-page="../../Admin/Blobs/UploadToBlob">Upload to Blob Storage</a><br>
+<a class="adminLinks" asp-page="../../Admin/Blobs/DeleteInBlob">Delete from Blob Storage</a><br>
+<a class="adminLinks" asp-page="../../Admin/Blobs/DownloadFromBlob">Download from Blob Storage</a><br><br><br>
+
+
+<div class="container">
+    <h5>The list of files in the Container:</h5>
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" style="border-style: none"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var file in Model.blobs)
+                    {
+                        <tr style="border-style: none">
+                            <td style="color:#20b2aa; border-style: none">@file.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

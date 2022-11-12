@@ -1,12 +1,12 @@
 ﻿@page
 @model MoonriseMovies.Pages.Admin.UploadToBlobModel
 @{
-    ViewData["Title"] = "Blob Azure Storage";
+    ViewData["Title"] = "Upload to Blob Azure Storage";
 }
 
-<br>
+<a class="adminLinks" asp-page="../../Admin/Blobs/Index">Back to Blobs</a><br><br>
 <h4>Upload to Blob Azure Storage:</h4><br>
-<a class="adminLinks" asp-page="../Admin/Index">Back to Dashboard</a><br><br>
+
 <div class="row">
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">

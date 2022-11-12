@@ -1,0 +1,29 @@
+﻿@page
+@model MoonriseMovies.Pages.Admin.DownloadFromBlobModel
+@{
+    ViewData["Title"] = "Download to Blob Azure Storage";
+}
+
+<a class="adminLinks" asp-page="../../Admin/Blobs/Index">Back to Blobs</a><br><br>
+<h4>Download from Blob Azure Storage:</h4><br>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label">Choose file</label>
+                <select class="form-control" name="fileName">
+                    <option value=""></option>
+                    @foreach (var file in Model.blobs)
+                    {
+                        <option value="@file.Name">@file.Name</option>
+                    }
+                </select>
+            </div><br>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Download" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+

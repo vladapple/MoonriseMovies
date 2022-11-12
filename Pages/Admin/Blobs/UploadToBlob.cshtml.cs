@@ -42,7 +42,7 @@ namespace MoonriseMovies.Pages.Admin
             {  
                 await blockBlob.UploadFromStreamAsync(data);  
             }  
-            return RedirectToPage("../Admin/Index");  
+            return RedirectToPage("../../Admin/Blobs/Index");  
         }
     }
 }
