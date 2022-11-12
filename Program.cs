@@ -1,9 +1,6 @@
 using MoonriseMovies.Data; 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using MoonriseMovies.WebApi.Common;
-using MoonriseMovies.WebApi.Repository;
-using MoonriseMovies.WebApi.Services;
 using Serilog;
 
 
@@ -14,12 +11,10 @@ builder.Host.UseSerilog((_, config) =>
         config.WriteTo.Console()
         .ReadFrom.Configuration(builder.Configuration);
     });
-StaticLogger.EnsureInitialized();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// Add Azure Repository Service
-builder.Services.AddTransient<IAzureStorage, AzureStorage>();
+
 
 
 // Add services to the container.

@@ -1,0 +1,24 @@
+﻿@page
+@model MoonriseMovies.Pages.Admin.DeleteInBlobModel
+@{
+    ViewData["Title"] = "Blob Azure Storage";
+}
+
+<br>
+<h4>Delete from Blob Azure Storage:</h4><br>
+<a class="adminLinks" asp-page="../Admin/Index">Back to Dashboard</a><br><br>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label">Write file name</label>
+                <input type="text" name="fileName" class="form-control" />
+            </div><br>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
