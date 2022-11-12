@@ -48,7 +48,7 @@
                         }
                         <br><br>
                         <a href=@Model.SelMovie.TrailerURL target="_blank" class="btn btn-danger">Trailer <i class="bi bi-youtube"></i></a>
-                        <a asp-page="/ReviewView" asp-route-id="@Model.SelMovie.Id" class="btn btn-primary">Reviews</a>
+                        <a asp-page="/ReviewView" asp-route-id="@Model.SelMovie.Id" class="btn btn-primary">Reviews <i class="bi bi-stars"></i></a>
                     </span>
                     <!---->
                 </p>
@@ -71,16 +71,16 @@
                                     {
                                         <div class="col">
                                             <div class="container">
-                                                <div class="list-group w-auto">
+                                                <div class="list-group w-auto rounded">
                                                     <div class="col">
-                                                        <button type="button" id="day" class="btn btn-danger btn-lg">Friday</button>
+                                                        <div id="day" class="btn btn-danger btn-lg">Friday</div>
                                                     </div>
                                                     <br>
                                                      <!--is user logged in or not--->
                                                         @if(signInManager.IsSignedIn(User))
                                                         {
                                                             <a asp-page="/OrderPage" asp-route-id="@s.Id"
-                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Book</button>
@@ -96,7 +96,7 @@
                                                         }else
                                                         {
                                                             <a asp-page="/Account/Login"
-                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Login</button>
@@ -129,13 +129,13 @@
                                             <div class="container">
                                                 <div class="list-group w-auto">
                                                     <div class="col">
-                                                        <button type="button" id="day" class="btn btn-danger btn-lg">Saturday</button>
+                                                        <div id="day" class="btn btn-danger btn-lg">Saturday</div>
                                                     </div>
                                                     <br>
                                                     @if(signInManager.IsSignedIn(User))
                                                         {
                                                             <a asp-page="/OrderPage" asp-route-id="@s.Id"
-                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Book</button>
@@ -151,7 +151,7 @@
                                                         }else
                                                         {
                                                             <a asp-page="/Account/Login"
-                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Login</button>
@@ -182,13 +182,13 @@
                                             <div class="container">
                                                 <div class="list-group w-auto">
                                                     <div class="col">
-                                                        <button type="button" id="day" class="btn btn-danger btn-lg">Sunday</button>
+                                                        <div id="day" class="btn btn-danger btn-lg">Sunday</div>
                                                     </div>
                                                     <br>
                                                     @if(signInManager.IsSignedIn(User))
                                                         {
                                                             <a asp-page="/OrderPage" asp-route-id="@s.Id"
-                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                         class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Book</button>
@@ -203,7 +203,7 @@
                                                         </a>
                                                         }else
                                                         {
-                                                            <a asp-page="/Account/Login" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light"
+                                                            <a asp-page="/Account/Login" class="list-group-item list-group-item-action d-flex gap-3 py-3 bg-dark text-light rounded"
                                                             aria-current="true">
                                                         <button type="button" class="btn btn-warning text-light"><i
                                                         class="bi bi-film"></i>Login</button>
