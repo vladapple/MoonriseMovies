@@ -67,11 +67,13 @@
             <div class="mb-3">
                 <label for="">End: <b>@Model.screening.End</b></label>
             </div>
+            @*
             <div class="mb-3">
                 <label for="">Payment: </label>
                 <input asp-for="PaymentMethod" class="bg-dark text-light" style="width: 75px;" type="text"/>
             </div>
-            <input asp-page="/Review" asp-route-id="@Model.screening.Id" type="submit" value="Submit" class="btn btn-primary btn-lg" />
+            *@
+            <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
             <a asp-page="/ViewMovieDetails" asp-route-id="@Model.movie.Id" class="btn btn-danger btn-lg">Go Back</a>
         </form>
     </div>

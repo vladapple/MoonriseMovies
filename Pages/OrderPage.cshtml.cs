@@ -32,9 +32,10 @@ namespace MoonriseMovies.Pages
         public Screening screening {get;set;}
         public IdentityUser user {get; set;}
 
+/*
         [BindProperty]
         public string PaymentMethod {get; set;}
-
+*/
         public async Task OnGetAsync()
         {
             screening = db.Screenings.Include(s => s.Movie).Where(s => s.Id == Id).FirstOrDefault();
@@ -54,10 +55,6 @@ namespace MoonriseMovies.Pages
             var movieid = screening.Movie.Id;
             movie = await db.Movies.FindAsync(movieid);
 
-            if(!ModelState.IsValid)
-            {
-                return Page();
-            }
             var userName = User.Identity.Name; // user's email
             var user = db.Users.Where(u => u.UserName == userName).FirstOrDefault(); //user in database
             var newTicket = new MoonriseMovies.Models.Ticket
@@ -65,7 +62,7 @@ namespace MoonriseMovies.Pages
                 Client = user,
                 Screening = screening,
                 PurchasedAt = DateTime.Now,
-                PaymentCode = PaymentMethod,
+                PaymentCode = "Not Payed"
             };
             db.Tickets.Add(newTicket);
             await db.SaveChangesAsync();
@@ -90,8 +87,7 @@ namespace MoonriseMovies.Pages
                             Movie Title: {movie.Title}<br>
                             Screening: {screening.Code}<br>
                             Screening Date: {screening.Start}<br>
-                            Price: {screening.Price}.00$<br>
-                            Payment Code: {PaymentMethod}<br><br>
+                            Price: {screening.Price}.00$<br><br>
                             Enjoy the movie!<br><br>
                             Kind regards,<br>
                             MoonriseMovie</p>

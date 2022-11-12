@@ -15,8 +15,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<MoonriseDBContext>();
