@@ -170,43 +170,38 @@ Mitchell
 November 11
 Vlad:
 1) Done / Not done since Last Scrum:
-   
+   Blob finished
 2) To do until next Scrum:
-   
+   Deployment in Azure App
 3) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-   
+   Testing project
 2) To do until next Scrum:
-   
+   Debugging
 3) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-  
+   Testing project, PPT preparation
 2) To do until next Scrum:
-   
+   Debugging, PPT presentation
 3) Need Assistance / figure things out
 
-November 12
+November 13
 Vlad:
 1) Done / Not done since Last Scrum:
+   Deployment app finished
    
-2) To do until next Scrum:
- 
-3) Need Assistance / figure things out
+2) Need Assistance / figure things out
 
 Matthew:
 1) Done / Not done since Last Scrum:
-  
-2) To do until next Scrum:
-   
-3) Need Assistance / figure things out
+   Improved the form Rating
+2) Need Assistance / figure things out
 
 Mitchell
 1) Done / Not done since Last Scrum:
-   
-2) To do until next Scrum:
-  
-3) Need Assistance / figure things out
+   Prepared PPT
+2) Need Assistance / figure things out
