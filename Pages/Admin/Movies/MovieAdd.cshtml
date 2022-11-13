@@ -3,21 +3,22 @@
 @{
     ViewData["Title"] = "Add movie";
 }
-<h3>Create new movie:</h3><br>
-<a class="adminLinks" asp-page="../../Admin/Movies/Movies">Back to Movies</a><br><br>
+<br>
+<h1>Add New Movie</h1>
+
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+                <input asp-for="Title" class="form-control bg-dark text-light" />
                 <span asp-validation-for="Title" style="color:red; font-size:10px;"></span>
             </div><br>
 
             <div class="form-group">
                 <label asp-for="Genre" class="control-label"></label>
-                <select asp-for="Genre" class="form-control">
+                <select asp-for="Genre" class="form-control bg-dark text-light">
                     <option value="Action">Action</option>
                     <option value="Comedy">Comedy</option>
                     <option value="Drama">Drama</option>
@@ -33,36 +34,36 @@
 
             <div class="form-group">
                 <label asp-for="DurationMin" class="control-label"></label>
-                <input type="number" asp-for="DurationMin" class="form-control" />
+                <input type="number" asp-for="DurationMin" class="form-control bg-dark text-light" />
                 <span asp-validation-for="DurationMin" style="color:red; font-size:10px;"></span>
             </div><br>
 
             <div class="form-group">
                 <label asp-for="TrailerURL" class="control-label"></label>
-                <input asp-for="TrailerURL" class="form-control" />
+                <input asp-for="TrailerURL" class="form-control bg-dark text-light" />
                 <span asp-validation-for="TrailerURL" style="color:red; font-size:10px;"></span>
             </div><br>
 
             <div class="form-group">
                 <label class="control-label">Image</label>
-                <input type="file" asp-for="Image" name="file" class="form-control" />
+                <input type="file" asp-for="Image" name="file" class="form-control bg-dark text-light" />
                 <span asp-validation-for="Image" style="color:red; font-size:10px;"></span>
             </div><br>
 
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control"></textarea>
+                <textarea asp-for="Description" class="form-control bg-dark text-light"></textarea>
                 <span asp-validation-for="Description" style="color:red; font-size:10px;"></span>
             </div>
             <br>
 
             <div class="form-group">
-                <input type="submit" value="Add Movie" class="btn btn-secondary" />
+                <input type="submit" value="Add Movie" class="btn btn-success btn-lg" />
+                <a class="adminLinks" asp-page="../../Admin/Movies/Movies"><div class="btn btn-danger btn-lg">Go Back</div></a>
             </div>
         </form>
     </div>
 </div>
-
 @section scripts{
 <partial name="_ValidationScriptsPartial"></partial>
 }
