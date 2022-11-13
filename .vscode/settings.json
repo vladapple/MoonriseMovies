@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net6.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/470bc78c-cf7c-442e-880f-97e46ce2cbf4/AppServices/subscriptions/470bc78c-cf7c-442e-880f-97e46ce2cbf4/resourceGroups/Team3/providers/Microsoft.Web/sites/moonrisemovies"
+}
