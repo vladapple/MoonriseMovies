@@ -8,13 +8,12 @@
           color: black;
     }
 </style>
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
+<br>
+<h1>@ViewData["Title"] an Account</h1>
+<br>
+<div class="container">
     <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
+        <form id="registerForm" class="form-goup" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-floating">
                 <input asp-for="Input.Email" class="form-control text-light bg-dark" autocomplete="username" aria-required="true" />
@@ -34,12 +33,12 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <br>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-secondary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Register</button>
         </form>
     </div>
 
 </div>
-
+</div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

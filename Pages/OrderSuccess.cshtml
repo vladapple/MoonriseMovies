@@ -4,7 +4,10 @@
     ViewData["Title"] = "AddSuccess";
 }
 <br>
-<h1 class="success">Thank you for your booking!</h1><br>
-<h3>There might still be a bit of wait,<br> Pay now using Stripe to skip the line.</h3><br><a href="https://buy.stripe.com/test_7sI7vt0RkcUH8TefYZ" target="_blank"><button class="btn btn-danger btn-lg">Pay Now</button></a>
-<br>
-<a asp-page="/Index">Back to main page</a>
+<h1 class="success">Thank you, we look forawrd to seeing you!</h1><br>
+<div class="container bg-dark p-4 rounded">
+<h3 class="text">There might still be a bit of a wait,<br> Pay now using Stripe to skip the line.</h3><br>
+<a href="https://buy.stripe.com/test_7sI7vt0RkcUH8TefYZ" target="_blank">
+<button class="btn btn-danger btn-lg m-2">Pay Now</button></a>
+<a asp-page="/Index"><button class="btn btn-primary btn-lg m-2">Back to Homepage</button></a>
+</div>

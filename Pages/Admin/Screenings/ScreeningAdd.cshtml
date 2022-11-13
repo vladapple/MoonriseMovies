@@ -3,15 +3,15 @@
 @{
     ViewData["Title"] = "Add Screening";
 }
-<h3>Create new screening:</h3><br>
-<a class="adminLinks" asp-page="../../Admin/Screenings/Screenings">Back to Screenings</a><br><br>
+<br>
+<h1>Add new Screening</h1><br>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Code" class="control-label"></label>
-                <select asp-for="Code" class="form-control">
+                <select asp-for="Code" class="form-control bg-dark text-light">
                     <option value="A">A</option>
                     <option value="B">B</option>
                 </select>
@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label class="control-label">Movie</label>
-                <select class="form-control" name = "movieId">
+                <select class="form-control bg-dark text-light" name = "movieId">
                     <option value=""></option>
                     @foreach (var movie in Model.MovieList)
                     {
@@ -34,19 +34,20 @@
             <div class="form-group">
                 <label asp-for="Start" class="control-label"></label>
                 <input type="datetime-local" value="2022-11-07T00:00"
-                    min="2022-11-07T00:00" asp-for="Start" class="form-control" />
+                    min="2022-11-07T00:00" asp-for="Start" class="form-control bg-dark text-light" />
                 <span asp-validation-for="Start" style="color:red; font-size:10px;"></span>
             </div><br>
 
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input type="number" asp-for="Price" class="form-control" />
+                <input type="number" asp-for="Price" class="form-control bg-dark text-light" />
                 <span asp-validation-for="Price" style="color:red; font-size:10px;"></span>
             </div><br>
             <br>
 
             <div class="form-group">
-                <input type="submit" value="Add Screening" class="btn btn-secondary" />
+                <input type="submit" value="Add Screening" class="btn btn-success btn-lg" />
+            <a class="adminLinks" asp-page="../../Admin/Screenings/Screenings"><div class="btn btn-danger btn-lg">Go Back</div></a>
             </div>
         </form>
     </div>

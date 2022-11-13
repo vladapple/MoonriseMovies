@@ -13,10 +13,10 @@
 
 <div class="Main">
     <div class="container">
-        <div id="movieWrapper" class="row row-cols-1 row-cols-md-3 g-4">
+        <div id="movieWrapper" class="row row-cols-1 row-cols-md-3 g-1">
             @foreach (var m in Model.MovieList)
             {
-                <div class="card mb-3 bg-dark text-light">
+                <div class="card mb-1 bg-dark text-light p-1">
                 <img src=@ViewData["Image" + m.Id.ToString()] style="width: auto; padding: 1rem; height: 500px;" class="img-fluid card-img-top rounded" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@m.Title</h5>  
