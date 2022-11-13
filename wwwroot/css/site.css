@@ -20,7 +20,7 @@ body {
 }
 
 #moviepricing{
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://localhost:7032/image/herosection.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://moonrizemovie.blob.core.windows.net/moonrize/herosection.jpg?sp=r&st=2022-11-13T01:43:37Z&se=2022-11-13T09:43:37Z&spr=https&sv=2021-06-08&sr=b&sig=nX5YpBnJc%2BAujsWeaFZYgT3Kwi8cz3XPiTvP3X1gfyQ%3D');
   background-size: 175%;
   background-repeat: no-repeat;
   width: 100%;
@@ -28,7 +28,7 @@ body {
 }
 
 #playingthisweek{
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://localhost:7032/image/2665.jpg');
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://moonrizemovie.blob.core.windows.net/moonrize/2665.jpg?sp=r&st=2022-11-13T01:42:50Z&se=2022-11-13T09:42:50Z&spr=https&sv=2021-06-08&sr=b&sig=JDscD2zw9UPGRa85RIbrwyCX3LQXiaoMgqVqvbxKZk0%3D');
   background-size: 180%;
   background-repeat: no-repeat;
   background-position-y: -175px;
