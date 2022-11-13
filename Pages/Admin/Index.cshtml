@@ -5,12 +5,78 @@
 }
 
 <br>
-<h4>Admin @ViewData["Title"]:</h4><br>
-<a class="adminLinks" asp-page="../Admin/Movies/Movies">Movies</a><br>
-<a class="adminLinks" asp-page="../Admin/Screenings/Screenings">Screenings</a><br>
-<a class="adminLinks" asp-page="../Admin/Users/Users">Users</a><br><br>
-<a class="adminLinks" asp-page="../Admin/Chart">Chart</a><br><br>
-<a class="adminLinks" asp-page="../Admin/Blobs/Index">Blob Storage</a><br>
-<br><br><br>
-<a class="adminLinks" asp-page="../Index">Exit</a>
+<div class="container text-center">
+    <h1>Admin @ViewData["Title"]</h1>
+</div>
+
+<div class="container text-center text-light">
+    <div class="row">
+        <div class="col-6 col-md-4 p-2">
+            <a class="adminLinks" asp-page="../Admin/Movies/Movies">
+                <div class="card w-100 bg-dark text-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Movies</h5>
+                        <p class="card-text">Add, Read, Update and Delete Movies</p>
+                        <div href="#" class="btn btn-danger btn-lg"><i class="bi bi-film"></i></div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-6 col-md-4 p-2">
+            <a class="adminLinks" asp-page="../Admin/Screenings/Screenings">
+                <div class="card w-100 bg-dark text-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Screenings</h5>
+                        <p class="card-text">Add, Read, Update and Delete Screenings</p>
+                        <div href="#" class="btn btn-danger btn-lg"><i class="bi bi-calendar-check"></i></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-4 p-2">
+            <a class="adminLinks" asp-page="../Admin/Users/Users">
+                <div class="card w-100 bg-dark text-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Users</h5>
+                        <p class="card-text">Add, Read, Update and Delete Users</p>
+                        <div href="#" class="btn btn-danger btn-lg"><i class="bi bi-person-circle"></i></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 p-2">
+            <a class="adminLinks" asp-page="../Admin/Chart">
+                <div class="card w-100 bg-dark text-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Charts</h5>
+                        <p class="card-text">View our most recent statistics</p>
+                        <div href="#" class="btn btn-danger btn-lg"><i class="bi bi-bar-chart-steps"></i></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-6 p-2">
+            <a class="adminLinks" asp-page="../Admin/Blobs/Index">
+                <div class="card w-100 bg-dark text-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Blob Storage</h5>
+                        <p class="card-text">Update, Delete and Download from Blob Storage</p>
+                        <div href="#" class="btn btn-danger btn-lg"><i class="bi bi-bar-chart-steps"></i></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col w-100 p-2">
+            <a class="adminLinks" asp-page="../Index">
+                <div class="btn btn-danger w-100 btn-lg">Homepage <i class="bi bi-house-door-fill"></i></div>
+            </a>
+        </div>
+    </div>
+
+</div>
 
